@@ -7,7 +7,7 @@ public class    Flight extends Module {
 
     public Flight() {
         super("Flight", "Allows you to fly", Category.MOVEMENT);
-        this.setKey(GLFW.GLFW_KEY_RIGHT_SHIFT);
+        this.setKey(GLFW.GLFW_KEY_F);
     }
     @Override
     public void onTick() {

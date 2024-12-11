@@ -32,18 +32,30 @@ loom {
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
+	// Fabric API
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+	// Lombok
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
+	// ImGui dependencies
+	implementation "io.github.spair:imgui-java-app:${project.imgui_version}"
+	include implementation("io.github.spair:imgui-java-binding:${project.imgui_version}")
+	include implementation("io.github.spair:imgui-java-lwjgl3:${project.imgui_version}")
+	include implementation("io.github.spair:imgui-java-natives-windows:${project.imgui_version}")
+	include implementation("io.github.spair:imgui-java-natives-linux:${project.imgui_version}")
+	include implementation("io.github.spair:imgui-java-natives-macos:${project.imgui_version}")
+	implementation "org.lwjgl:lwjgl-stb:3.3.2"
+	runtimeOnly "org.lwjgl:lwjgl-stb:3.3.2:natives-windows"
+	runtimeOnly "org.lwjgl:lwjgl-stb:3.3.2:natives-linux"
+	runtimeOnly "org.lwjgl:lwjgl-stb:3.3.2:natives-macos"
 }
+
 
 processResources {
 	inputs.property "version", project.version
@@ -88,5 +100,13 @@ publishing {
 		// Notice: This block does NOT have the same function as the block in the top level.
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
+	}
+}
+
+configurations.all {
+	resolutionStrategy.eachDependency { details ->
+		if (details.requested.group == "org.lwjgl") {
+			details.useVersion("3.3.2") // Replace with your desired LWJGL version
+		}
 	}
 }

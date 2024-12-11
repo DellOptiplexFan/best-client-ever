@@ -3,6 +3,7 @@ package com.example.modules;
 import com.example.modules.movement.Safewalk;
 import com.example.modules.movement.Flight;
 import com.example.modules.movement.Sprint;
+import com.example.modules.render.ClickGUI;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -31,5 +32,6 @@ public class ModuleManager {
         modules.add(new Flight());
         modules.add(new Sprint());
         modules.add(new Safewalk());
+        modules.add(new ClickGUI());
     }
 }

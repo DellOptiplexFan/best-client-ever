@@ -38,6 +38,7 @@ public class Module implements MCInst {
     public void onEnable() {}
     public void onDisable() {}
     public void onTick() {}
+    public void onClose() {}
 
     public enum Category {
         COMBAT,

@@ -5,6 +5,8 @@ import org.lwjgl.glfw.GLFW;
 import com.example.modules.ui.screens.ClickGui;
 import net.minecraft.text.Text;
 
+import
+
 public class ClickGUI extends Module {
 
     public ClickGUI() {

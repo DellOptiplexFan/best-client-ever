@@ -1,43 +1,30 @@
 package com.example.modules;
 
-import com.example.modules.Movement.Safewalk;
-import com.example.modules.Movement.Flight;
-import com.example.modules.Movement.Sprint;
+import com.example.modules.movement.Safewalk;
+import com.example.modules.movement.Flight;
+import com.example.modules.movement.Sprint;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Getter
 public class ModuleManager {
     public static final ModuleManager INSTANCE = new ModuleManager();
+    private final List<Module> modules = Collections.synchronizedList(new ArrayList<>());
 
-    private static ModuleManager instance;
-
-    private final List<Mod> modules = Collections.synchronizedList(new ArrayList<>());
-
-    private ModuleManager() {
-        addModules();
+    static {
+        INSTANCE.addModules();
     }
 
-    public static ModuleManager getInstance() {
-        if (instance == null) {
-            instance = new ModuleManager();
+    public List<Module> getEnabledModules() {
+        synchronized (modules) {
+            return modules.stream()
+                    .filter(Module::isEnabled)
+                    .collect(Collectors.toList());
         }
-        return instance;
-    }
-
-    public synchronized List<Mod> getModules() {
-        return modules; // Returns a copy to prevent external modifications
-    }
-
-    public synchronized List<Mod> getEnabledModules() {
-        List<Mod> enabled = new ArrayList<>();
-        for (Mod module : modules) {
-            if (module != null && module.isEnabled()) { // Null-safe check
-                enabled.add(module);
-            }
-        }
-        return enabled;
     }
 
     private void addModules() {

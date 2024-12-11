@@ -1,9 +1,9 @@
-package com.example.modules.Movement;
+package com.example.modules.movement;
 
-import com.example.modules.Mod;
+import com.example.modules.Module;
 import org.lwjgl.glfw.GLFW;
 
-public class Sprint extends Mod {
+public class Sprint extends Module {
 
     public Sprint() {
         super("Sprint", "Allows you to sprint", Category.MOVEMENT);

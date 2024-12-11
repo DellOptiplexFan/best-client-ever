@@ -4,6 +4,10 @@ pluginManagement {
 			name = 'Fabric'
 			url = 'https://maven.fabricmc.net/'
 		}
+		maven {
+			name = 'AlignedCookie88'
+			url = 'https://repo.alignedcookie88.com/repository/maven-public/'
+		}
 		mavenCentral()
 		gradlePluginPortal()
 	}

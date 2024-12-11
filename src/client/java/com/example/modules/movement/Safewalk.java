@@ -1,13 +1,13 @@
-package com.example.modules.Movement;
+package com.example.modules.movement;
 
-import com.example.modules.Mod;
+import com.example.modules.Module;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.glfw.GLFW;
 
-public class Safewalk extends Mod {
+public class Safewalk extends Module {
 
     public Safewalk() {
         super("Eagle", "Sneaks on the edges of blocks.", Category.MOVEMENT);

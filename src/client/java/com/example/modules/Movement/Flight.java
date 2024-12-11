@@ -7,6 +7,7 @@ public class Flight extends Mod {
 
     public Flight() {
         super("Flight", "Allows you to fly", Category.MOVEMENT);
+        this.setKey(GLFW.GLFW_KEY_RIGHT_SHIFT);
     }
     @Override
     public void onTick() {

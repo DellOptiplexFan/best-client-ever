@@ -7,6 +7,7 @@ public class ClickGUI extends Mod {
 
     public ClickGUI() {
         super("ClickGUI", "Clicks the GUI", Category.RENDER);
+
     }
     @Override
     public void onTick() {

@@ -10,7 +10,7 @@ import org.lwjgl.glfw.GLFW;
 public class Safewalk extends Module {
 
     public Safewalk() {
-        super("Eagle", "Sneaks on the edges of blocks.", Category.MOVEMENT);
+        super("Safewalk", "Automatically sneaks on the edges of blocks.", Category.MOVEMENT);
         this.setKey(GLFW.GLFW_KEY_V); 
     }
 

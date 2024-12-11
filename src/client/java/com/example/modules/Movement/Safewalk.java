@@ -3,6 +3,7 @@ package com.example.modules.Movement;
 import com.example.modules.Mod;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.client.option.KeyBinding;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.glfw.GLFW;
 
@@ -19,21 +20,22 @@ public class Safewalk extends Mod {
             return; // exit dis bih
         }
 
+        KeyBinding sneakKey = mc.options.sneakKey;
+
         BlockPos playerPos = mc.player.getBlockPos();
-        BlockPos blockBelowPos = playerPos.down();
+        BlockState blockStateBelow = mc.world.getBlockState(playerPos.down());
 
-        BlockState blockStateBelow = mc.world.getBlockState(blockBelowPos);
-
-        boolean shouldSneak = blockStateBelow.isAir();
-
-        if (mc.player.isSneaking() != shouldSneak) {
-            mc.player.setSneaking(shouldSneak);
-            System.out.println("Sneaking nigga");
+        if (blockStateBelow.isAir()) {
+            KeyBinding.setKeyPressed(sneakKey.getDefaultKey(), true);
+        }
+        else {
+            KeyBinding.setKeyPressed(sneakKey.getDefaultKey(), false);
         }
     }
 
     @Override
     public void onDisable() {
-        mc.player.setSneaking(false);
+        KeyBinding sneakKey1 = mc.options.sneakKey;
+        KeyBinding.setKeyPressed(sneakKey1.getDefaultKey(), false);
     }
 }

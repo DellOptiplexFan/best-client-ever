@@ -42,9 +42,12 @@ dependencies {
 
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
+<<<<<<< HEAD
 
 	modImplementation 'xyz.breadloaf.imguimc:imgui-mc:1.21.3-1.0.9'
 
+=======
+>>>>>>> parent of 1305d6a (BALSL)
 }
 
 processResources {

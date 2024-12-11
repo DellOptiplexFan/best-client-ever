@@ -26,7 +26,6 @@ public class Module implements MCInst {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
 
-        Process log;
         if (enabled) {
             onEnable();
             log.info("{} has been enabled.", name);

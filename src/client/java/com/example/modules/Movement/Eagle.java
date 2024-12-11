@@ -28,6 +28,7 @@ public class Eagle extends Mod {
 
         if (mc.player.isSneaking() != shouldSneak) {
             mc.player.setSneaking(shouldSneak);
+            System.out.println("Sneaking nigga");
         }
     }
 

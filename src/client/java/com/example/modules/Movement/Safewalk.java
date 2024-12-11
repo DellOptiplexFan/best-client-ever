@@ -6,9 +6,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.glfw.GLFW;
 
-public class Eagle extends Mod {
+public class Safewalk extends Mod {
 
-    public Eagle() {
+    public Safewalk() {
         super("Eagle", "Sneaks on the edges of blocks.", Category.MOVEMENT);
         this.setKey(GLFW.GLFW_KEY_V); 
     }

@@ -1,6 +1,6 @@
 package com.example.modules;
 
-import com.example.modules.Movement.Eagle;
+import com.example.modules.Movement.Safewalk;
 import com.example.modules.Movement.Flight;
 import com.example.modules.Movement.Sprint;
 
@@ -43,6 +43,6 @@ public class ModuleManager {
     private void addModules() {
         modules.add(new Flight());
         modules.add(new Sprint());
-        modules.add(new Eagle());
+        modules.add(new Safewalk());
     }
 }
